@@ -14,6 +14,8 @@ const authenticatedOptions = (changeActivePage, onSignout) => (
   </React.Fragment>
 );
 
+
+
 const unauthenticatedOptions = changeActivePage => (
   <React.Fragment>
     <li className="nav-item" onClick={() => changeActivePage("sign-in")}>
@@ -30,12 +32,18 @@ const alwaysOptions = changeActivePage => (
     <li className="nav-item" onClick={() => changeActivePage("home")}>
       <div className="nav-link">Home</div>
     </li>
+    <li className="nav-item" onClick={() => changeActivePage("home")}>
+      <div className="nav-link">Trainer</div>
+    </li>
+    
+
   </React.Fragment>
+
 );
 
 const Nav = ({ user, changeActivePage, onSignout }) => (
-  <nav className="navbar navbar-expand-lg navbar-light bg-light">
-    <div className="navbar-brand">Navbar</div>
+  <nav className="navbar navbar-expand-lg navStyle navbar-light  ">
+    <div className="navbar-brand"></div>
     <button
       className="navbar-toggler"
       type="button"

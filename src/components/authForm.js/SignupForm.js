@@ -1,19 +1,27 @@
 import React, { Component } from "react";
 import apiUrl from "../../apiConfig";
 import { setUser } from "../../services/AuthService";
+
 class SignupForm extends Component {
   state = {
     formData: {
       email: null,
       password: null,
-      password_confirmation: null
+      password_confirmation: null,
+      name: null,
+      phone: null,
+      address: null,
+      car: null,
+      cost: null,
+      avalable: null
     },
     err: null
   };
 
   handleLoginRequest = user => {
+    
     let url = `${apiUrl}/sign-up`;
-
+//fetch
     fetch(url, {
       mode: "cors",
       credentials: "include",
@@ -25,7 +33,8 @@ class SignupForm extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        if (data.error) this.setState({ err: data.error });
+        if (data.status > 299) 
+          this.setState({ err: data.message});
         else {
           setUser(data);
           this.props.onSignin();
@@ -33,6 +42,7 @@ class SignupForm extends Component {
       })
       .catch(e => console.log(e));
   };
+
   handleSubmit = e => {
     e.preventDefault();
     this.handleLoginRequest(this.state.formData);
@@ -58,6 +68,42 @@ class SignupForm extends Component {
             <label>email </label>
             <input
               name="email"
+              className="form-control"
+              onChange={this.handleChange}
+            />
+            <label>Name </label>
+            <input
+              name="name"
+              className="form-control"
+              onChange={this.handleChange}
+            />
+            <label>Phone </label>
+            <input
+              name="phone"
+              className="form-control"
+              onChange={this.handleChange}
+            />
+            <label>Address </label>
+            <input
+              name="address"
+              className="form-control"
+              onChange={this.handleChange}
+            />
+            <label>Car </label>
+            <input
+              name="car"
+              className="form-control"
+              onChange={this.handleChange}
+            />
+            <label>Cost </label>
+            <input
+              name="cost"
+              className="form-control"
+              onChange={this.handleChange}
+            />
+            <label>Avalable </label>
+            <input
+              name="avalable"
               className="form-control"
               onChange={this.handleChange}
             />

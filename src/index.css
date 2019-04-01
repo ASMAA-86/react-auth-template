@@ -12,3 +12,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.navImg{
+height:200px;
+width:200px;
+}
+
+.navStyle{
+background-color: rosybrown;
+}
+
+.profileStyle{
+  border: 2px solid gray;
+  height:100px ;
+  width: 100px;
+}
